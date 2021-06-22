@@ -1,4 +1,4 @@
-﻿namespace ProjectStructure.Commands.Commands.PersonManagement.RequestsDto
+﻿namespace ProjectStructure.Api.Controllers.PersonManagement.RequestsDto
 {
     public sealed class AddNewPersonRequestDto
     {

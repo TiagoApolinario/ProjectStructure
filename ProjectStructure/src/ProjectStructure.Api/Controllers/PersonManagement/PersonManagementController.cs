@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ProjectStructure.Api.Controllers.PersonManagement.RequestsDto;
 using ProjectStructure.Commands.Commands.PersonManagement;
-using ProjectStructure.Commands.Commands.PersonManagement.RequestsDto;
 using ProjectStructure.Queries.Queries.PersonManagement.PersonList;
 using System.Threading.Tasks;
 
@@ -29,7 +29,13 @@ namespace ProjectStructure.Api.Controllers.PersonManagement
         [HttpGet("/add")]
         public async Task<IActionResult> AddNewPersonAsync(AddNewPersonRequestDto requestDto)
         {
-            var command = new AddPersonCommand(requestDto.Name, requestDto.AddressLine, requestDto.Suburb, requestDto.State, requestDto.Postcode);
+            var command = new AddPersonCommand(
+                requestDto.Name,
+                requestDto.AddressLine,
+                requestDto.Suburb,
+                requestDto.State,
+                requestDto.Postcode);
+
             var result = await _mediator.Send(command);
             return FromResult(result);
         }
